@@ -8,6 +8,7 @@ TODO's:
   TODO: Check if note changed before warn user.
   TODO: Customize list note page (notes table)
   TODO: Create application menu.
+  TODO: Add icons to toolbar buttons.
 
   Backend:
   TODO: Create application API.
@@ -35,6 +36,14 @@ TODO's:
 Manage notes:
 
 DONE: Create a toolbar to group all the buttons to control application.
+IN_PROGRESS: Modify toolbar to fit on small devices.
+  IDEA: On small screens, show a dropdown button on toolbar to save space.
+  IMPLEMENTED_IDEA: You need to set a smallest device to develop your application. A good
+  canditate is mom's smartphone (4 inch).
+  IDEA: Hide and show elements on toolbar.
+  GOOD_IDEA: Put search bar on main toolbar. Create a new layout to do that. Some applications
+  use the main toolbar to put action buttons.
+  Toolbar should be on page, not on layout.
 DONE: Create a "Create" note page.
   DONE: Create a form component to create and update notes.
 DONE: Create a "Read" note page.

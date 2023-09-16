@@ -1,36 +1,72 @@
 <template>
   <q-page>
     <div class="q-pa-md">
-      <q-toolbar>
-        <q-checkbox
-          v-model="selectAllNotes"
-          @click="setSelectedNotes"
-          label="Select all"
-        />
-        <q-btn-group actions>
-          <q-btn actions label="Create" :to="{ name: 'createNote' }" />
-          <q-btn actions label="Reload" @click="notes.loadData" />
+      <q-header elevated>
+        <q-toolbar v-if="!toggleSearchBar && selectedNotes.length == 0">
+          <!--Main bar-->
+          <q-toolbar-title>Note</q-toolbar-title>
           <q-btn
-            color="negative"
-            actions
-            label="Delete"
-            @click="removeNotes(selectedNotes)"
-            :disabled="selectedNotes.length == 0"
+            round
+            flat
+            icon="search"
+            @click="toggleSearchBar = true"
+          ></q-btn>
+          <q-btn round flat icon="person">
+            <q-menu>
+              <q-list>
+                <q-item clickable v-close-popup>
+                  <q-item-section> Username </q-item-section>
+                </q-item>
+                <q-item clickable v-close-popup>
+                  <q-item-section>Logout</q-item-section>
+                </q-item>
+              </q-list>
+            </q-menu>
+          </q-btn>
+          <q-btn round flat icon="more_vert">
+            <!--Select all-->
+            <q-menu>
+              <q-list>
+                <q-item clickable v-close-popup>
+                  <q-item-section @click="setSelectedNotes"
+                    >Select all</q-item-section
+                  >
+                </q-item>
+              </q-list>
+            </q-menu>
+          </q-btn>
+        </q-toolbar>
+        <q-toolbar v-if="toggleSearchBar && selectedNotes.length == 0">
+          <!--Search bar-->
+          <q-btn
+            round
+            flat
+            icon="arrow_back"
+            @click="
+              toggleSearchBar = false;
+              filterNotes = '';
+            "
           />
-        </q-btn-group>
-        <q-space />
-        <q-input
-          borderless
-          dense
-          debounce="300"
-          v-model="filterNotes"
-          placeholder="Search"
-        >
-          <template v-slot:append>
-            <q-icon name="search" />
-          </template>
-        </q-input>
-      </q-toolbar>
+          <q-space />
+          <q-input v-model="filterNotes" flat dense dark rounded></q-input>
+        </q-toolbar>
+        <q-toolbar v-if="selectedNotes.length != 0">
+          <!--Item bar-->
+          <q-btn round flat icon="arrow_back" @click="selectedNotes = []" />
+          <q-space />
+          <q-btn
+            round
+            flat
+            icon="delete"
+            @click="
+              removeNotes(selectedNotes);
+              selectedNotes = [];
+            "
+          />
+
+          <!--TODO: Implement Export notes funcionality-->
+        </q-toolbar>
+      </q-header>
       <q-table
         :rows="notes.data"
         :columns="columns"
@@ -84,6 +120,10 @@
           </div>
         </template>
       </q-table>
+
+      <q-page-sticky position="bottom-right" :offset="[18, 18]">
+        <q-btn fab icon="add" color="accent" :to="{ name: 'createNote' }" />
+      </q-page-sticky>
     </div>
   </q-page>
 </template>
@@ -127,6 +167,11 @@ const selectedNotes = ref<Note[]>([]);
  * Define if all notes are selected or not.
  */
 const selectAllNotes = ref<boolean>(false);
+
+/**
+ * Search bar visibility.
+ */
+const toggleSearchBar = ref<boolean>(false);
 
 /**
  * Selects all or none notes.
