@@ -1,0 +1,76 @@
+Create an application to manage (Create, Read, Update and Delete) notes.
+
+One note has id, title, body, tags, date, time, owner
+
+TODO's:
+
+  TODO: Add WYSIWYG editor to note form.
+  TODO: Check if note changed before warn user.
+  TODO: Customize list note page (notes table)
+  TODO: Create application menu.
+
+  Backend:
+  TODO: Create application API.
+  TODO: Add authentication to application API.
+  TODO: Connect frontend with application API.
+
+  TODO: Create a Progresive Web Application.
+  TODO: Add dark mode.
+  TODO: Add notifications to inform user when action is done or undone. Use banner component.
+  TODO: Add ajax bar.
+  TODO: Improve search button on small screen.
+  TODO: Add uppercase to "select all" checkbox.
+
+  TODO: Create a index page.
+  TODO: Create a about me page.
+  IDEA: Group of links (AboutMe, Contact, Web Applications). Navbar
+  IDEA: Show an image (you) and slogan (I believe on digital point of view).
+  IDEA: Put the first letter of your name and surname on logo.
+  IDEA: Title and purpose (Ariel Scull, Fullstack web developer)
+  IDEA: Show a screenshoots about web applications
+  IDEA: Use z pattern.
+
+
+
+Manage notes:
+
+DONE: Create a toolbar to group all the buttons to control application.
+DONE: Create a "Create" note page.
+  DONE: Create a form component to create and update notes.
+DONE: Create a "Read" note page.
+DONE: Create a "Update" note page.
+NO: Create a "Delete" note page.
+DONE: Create a "List" note page.
+  DONE: Customize cards
+  DONE: Create a toolbar to manage notes.
+  DONE: Implement a select all checkbox.
+  DONE: Implement "delete" button.
+  DONE: Implement "update" button.
+  DONE: Implement "search" text input.
+  DONE: Implement characters length contraints on title and body notes.
+  DONE: Implement click pointer on notes cards.
+  DONE: Implement change of color on card when user hovers it.
+  DONE: Implement a "create" button.
+
+Manage users:
+
+TODO: Create a "Create" user page (Register)
+NO: Create a "Read" user page.
+TODO: Create a "Update" user page.
+TODO: Create authentication page.
+NO: Create a "Delete" user page.
+
+Centralize application data:
+
+DONE: Create note store.
+TODO: Create user store.
+TODO: Create a backend storage to centralize host, port and request code.
+
+
+Idea: A user can't modify date and time of the note. This properties should not be
+configurable using a form.
+
+Idea (NO): Put a checkbox on updateNote to allow or disallow edit note. This feature
+allow eliminate readNote page, beause updateNote implements this funcionality.
+
+Idea: When user click a note on listNotes page should go to updateNote. Delete readNote page.
