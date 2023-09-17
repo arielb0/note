@@ -1,31 +1,19 @@
 <template>
   <q-btn
-    label="Back"
-    @click="props.warnUser ? (discardPopUp = true) : back()"
+    flat
+    rounded
+    icon="arrow_back"
+    @click="props.warnUser ? showBackConfirmationDialog() : back()"
   />
-  <q-dialog v-model="discardPopUp">
-    <q-card>
-      <q-card-section>
-        <div class="text-h6">Are you sure?</div>
-      </q-card-section>
-      <q-card-section>
-        <p>Any changes produced will be lost. Are you sure?</p>
-      </q-card-section>
-      <q-card-section>
-        <q-btn label="OK" v-close-popup @click="back" />
-        <q-btn label="Cancel" v-close-popup />
-      </q-card-section>
-    </q-card>
-  </q-dialog>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import { useRouter, RouteLocationRaw } from 'vue-router';
 import { useNotesStore } from 'src/stores/notes';
+import { useQuasar } from 'quasar';
 
 const router = useRouter();
-const discardPopUp = ref<boolean>(false);
+const quasar = useQuasar();
 const notes = useNotesStore();
 
 /**
@@ -35,6 +23,21 @@ const props = defineProps<{
   warnUser: boolean;
   route: RouteLocationRaw;
 }>();
+
+/**
+ * Logic to show back confirmation dialog.
+ */
+function showBackConfirmationDialog() {
+  quasar
+    .dialog({
+      title: 'Are you sure?',
+      message: 'Any changes will be lost. Are you sure?',
+      cancel: true,
+    })
+    .onOk(() => {
+      back();
+    });
+}
 
 /**
  * Handler for back to list notes page button
