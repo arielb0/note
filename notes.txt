@@ -4,7 +4,10 @@ One note has id, title, body, tags, date, time, owner
 
 TODO's:
 
-  TODO: Add WYSIWYG editor to note form.
+  NO: Add WYSIWYG editor to note form. This a application note, not a text editor.
+    NO: Put all commands inside WYSIWYG editor. Then select and remove unnecesary elements.
+  DONE: Resize texarea control on note form.
+  TODO: Fix logic that show warn when user exit from updateNote page.
   TODO: Check if note changed before warn user.
   TODO: Customize list note page (notes table)
   TODO: Create application menu.
@@ -76,10 +79,12 @@ TODO: Create user store.
 TODO: Create a backend storage to centralize host, port and request code.
 
 
-Idea: A user can't modify date and time of the note. This properties should not be
+IDEA: A user can't modify date and time of the note. This properties should not be
 configurable using a form.
 
-Idea (NO): Put a checkbox on updateNote to allow or disallow edit note. This feature
+IDEA (NO): Put a checkbox on updateNote to allow or disallow edit note. This feature
 allow eliminate readNote page, beause updateNote implements this funcionality.
 
-Idea: When user click a note on listNotes page should go to updateNote. Delete readNote page.
+IDEA: When user click a note on listNotes page should go to updateNote. Delete readNote page.
+
+IDEA (NO):

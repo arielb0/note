@@ -3,8 +3,7 @@ interface Note {
   title: string;
   body: string;
   tags: string;
-  date: string;
-  time: string;
+  timestamp: number;
   owner: number;
 }
 

@@ -2,27 +2,6 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import { Note } from 'src/ts/interfaces/note';
 
-/*
-export const useCounterStore = defineStore('counter', {
-  state: () => ({
-    counter: 0
-  }),
-
-  getters: {
-    doubleCount (state) {
-      return state.counter * 2
-    }
-  },
-
-  actions: {
-    increment () {
-      this.counter++
-    }
-  }
-})
-
-*/
-
 export const useNotesStore = defineStore('notes', () => {
   /**
    * Store notes data.
@@ -39,15 +18,6 @@ export const useNotesStore = defineStore('notes', () => {
   const time = ref<string>('');
   const owner = ref<number>(0);
 
-  // Create functions to manage notes.
-  //
-  // DONE: Load data from backend to storage.
-  // DONE: Create.
-  // DONE: Read.
-  // DONE: Update.
-  // DONE: Delete.
-  // DONE: Find.
-
   /**
    * Load notes data from server.
    * events to load data from server.
@@ -59,16 +29,10 @@ export const useNotesStore = defineStore('notes', () => {
     })
       .then((response) => response.json())
       .then((downloadedData) => {
-        console.log(
-          'Load data from server to notes store finished sucesfully.'
-        );
         data.value = downloadedData;
       })
       .catch((error) => {
         // TODO: Create or activate a user interface to manage errors.
-        console.log(
-          `Something has happened when trying to load data from server. Error: ${error}`
-        );
       });
   }
 
