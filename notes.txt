@@ -1,17 +1,13 @@
 Create an application to manage (Create, Read, Update and Delete) notes.
 
-One note has id, title, body, tags, date, time, owner
+One note has id, title, body, tags, timestamp, owner
 
 TODO's:
 
-  NO: Add WYSIWYG editor to note form. This a application note, not a text editor.
-    NO: Put all commands inside WYSIWYG editor. Then select and remove unnecesary elements.
-  DONE: Resize texarea control on note form.
-  TODO: Fix logic that show warn when user exit from updateNote page.
-  TODO: Check if note changed before warn user.
+
   TODO: Customize list note page (notes table)
   TODO: Create application menu.
-  DONE: Add icons to toolbar buttons (on listNotes page).
+
 
   Backend:
   TODO: Create application API.
@@ -22,9 +18,8 @@ TODO's:
   TODO: Add dark mode.
   TODO: Add notifications to inform user when action is done or undone. Use banner component.
   TODO: Add ajax bar.
-  DONE: Improve search button on small screen.
-  NO: Add uppercase to "select all" checkbox.
 
+  This is for portfolio:
   TODO: Create a index page.
   TODO: Create a about me page.
   IDEA: Group of links (AboutMe, Contact, Web Applications). Navbar
@@ -37,54 +32,87 @@ TODO's:
 
 
 Manage notes:
-TODO: Improve update note toolbar.
-DONE: Create a toolbar to group all the buttons to control application.
-DONE: Modify toolbar to fit on small devices.
-  NO: On small screens, show a dropdown button on toolbar to save space.
+
   YES: You need to set a smallest device to develop your application. A good
   canditate is mom's smartphone (4 inch).
   YES: Hide and show elements on toolbar.
   YES: Put search bar on main toolbar. Create a new layout to do that. Some applications
   use the main toolbar to put action buttons.
   Toolbar should be on page, not on layout.
-DONE: Create a "Create" note page.
-  DONE: Create a form component to create and update notes.
-DONE: Create a "Read" note page.
-DONE: Create a "Update" note page.
-NO: Create a "Delete" note page.
-DONE: Create a "List" note page.
-  DONE: Customize cards
-  DONE: Create a toolbar to manage notes.
-  DONE: Implement a select all checkbox.
-  DONE: Implement "delete" button.
-  DONE: Implement "update" button.
-  DONE: Implement "search" text input.
-  DONE: Implement characters length contraints on title and body notes.
-  DONE: Implement click pointer on notes cards.
-  DONE: Implement change of color on card when user hovers it.
-  DONE: Implement a "create" button.
+
+
+
 
 Manage users:
 
 TODO: Create a "Create" user page (Register)
-NO: Create a "Read" user page.
+
 TODO: Create a "Update" user page.
 TODO: Create authentication page.
-NO: Create a "Delete" user page.
+
 
 Centralize application data:
 
-DONE: Create note store.
 TODO: Create user store.
-TODO: Create a backend storage to centralize host, port and request code.
+TODO: Create a backend storage to centralize host, port and requests code.
 
 
-IDEA: A user can't modify date and time of the note. This properties should not be
-configurable using a form.
+DONE:
 
-IDEA (NO): Put a checkbox on updateNote to allow or disallow edit note. This feature
+  Resize texarea control on note form.
+
+  Fix logic that show warn when user exit from CreateNote page.
+      Commit message: Modified notes store,
+
+  Fix logic that show warn when user exit from UpdateNote page.
+
+  Add icons to toolbar buttons (on listNotes page).
+
+  Improve search button on small screen.
+
+  Create a toolbar to group all the buttons to control application.
+
+  Modify toolbar to fit on small devices.
+
+  Create a "List" note page.
+  Customize cards
+  Create a toolbar to manage notes.
+  Implement a select all checkbox.
+  Implement "delete" button.
+  Implement "update" button.
+  Implement "search" text input.
+  Implement characters length contraints on title and body notes.
+  Implement click pointer on notes cards.
+  Implement change of color on card when user hovers it.
+  Implement a "create" button.
+
+  Improve update note toolbar.
+
+  Create a "Create" note page.
+  Create a form component to create and update notes.
+  Create a "Read" note page.
+  Create a "Update" note page.
+
+  Create note store.
+
+  A user can't modify date and time of the note. This properties should not be
+  configurable using a form.
+
+  When user click a note on listNotes page should go to updateNote. Delete readNote page.
+
+NO:
+  Add WYSIWYG editor to note form. This a application note, not a text editor.
+      NO: Put all commands inside WYSIWYG editor. Then select and remove unnecesary elements.
+
+  Add uppercase to "select all" checkbox.
+
+  On small screens, show a dropdown button on toolbar to save space.
+
+  Put a checkbox on updateNote to allow or disallow edit note. This feature
 allow eliminate readNote page, beause updateNote implements this funcionality.
 
-IDEA: When user click a note on listNotes page should go to updateNote. Delete readNote page.
+Create a "Delete" user page.
 
-IDEA (NO):
+Create a "Read" user page.
+
+Create a "Delete" note page.

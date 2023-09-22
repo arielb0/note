@@ -14,8 +14,7 @@ export const useNotesStore = defineStore('notes', () => {
   const title = ref<string>('');
   const body = ref<string>('');
   const tags = ref<string>('');
-  const date = ref<string>('');
-  const time = ref<string>('');
+  const timestamp = ref<number>(0);
   const owner = ref<number>(0);
 
   /**
@@ -55,13 +54,11 @@ export const useNotesStore = defineStore('notes', () => {
    */
   function setNoteProperties(noteId: number) {
     const note = data.value.filter((note) => note.id === noteId)[0];
-    console.log(`This is the note id: ${note.id}`);
     id.value = note.id;
     title.value = note.title;
     body.value = note.body;
     tags.value = note.tags;
-    date.value = note.date;
-    time.value = note.time;
+    timestamp.value = note.timestamp;
     owner.value = note.owner;
   }
 
@@ -84,14 +81,13 @@ export const useNotesStore = defineStore('notes', () => {
    */
   function update() {
     data.value = data.value.filter((note) => note.id !== id.value);
-
+    // TODO: Create a function to reuse code (this code is similar to setNoteProperties)
     data.value.push({
       id: id.value,
       title: title.value,
       body: body.value,
       tags: tags.value,
-      date: date.value,
-      time: time.value,
+      timestamp: timestamp.value,
       owner: owner.value,
     });
     // TODO: Update note on backend
@@ -110,15 +106,14 @@ export const useNotesStore = defineStore('notes', () => {
   }
 
   /**
-   * Clean note properties.
+   * Clean note properties (set to default values).
    */
   function clean() {
     id.value = 0;
     title.value = '';
     body.value = '';
     tags.value = '';
-    date.value = '';
-    time.value = '';
+    timestamp.value = 0;
     owner.value = 0;
   }
 
@@ -128,8 +123,7 @@ export const useNotesStore = defineStore('notes', () => {
     title,
     body,
     tags,
-    date,
-    time,
+    timestamp,
     owner,
     loadData,
     create,
