@@ -2,10 +2,13 @@ Create an application to manage (Create, Read, Update and Delete) notes.
 
 One note has id, title, body, tags, timestamp, owner
 
+Commit note: Changed message when note list is empty. Added pwa on build mode.
 TODO's:
 
+  Add ajax bar.
 
-  TODO: Customize list note page (notes table)
+  TODO: Customize list note page (notes table).
+
   TODO: Create application menu.
 
 
@@ -17,7 +20,7 @@ TODO's:
   TODO: Create a Progresive Web Application.
   TODO: Add dark mode.
   TODO: Add notifications to inform user when action is done or undone. Use banner component.
-  TODO: Add ajax bar.
+
 
   This is for portfolio:
   TODO: Create a index page.
@@ -58,6 +61,13 @@ TODO: Create a backend storage to centralize host, port and requests code.
 
 
 DONE:
+
+  Customize message when notes table is loading.
+
+  Use PWA on development and production mode. I changed build command to
+  quasar build -m pwa and the publish directory to ./dist/pwa
+
+  Customize message when notes table is empty.
 
   Resize texarea control on note form.
 

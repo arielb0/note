@@ -119,6 +119,9 @@
             </q-card>
           </div>
         </template>
+        <template #no-data>
+          <p text-body1>No notes yet. Create one!</p>
+        </template>
       </q-table>
 
       <q-page-sticky position="bottom-right" :offset="[18, 18]">
