@@ -43,7 +43,7 @@ const router = useRouter();
 const notes = useNotesStore();
 
 /**
- * Quasar instance. Useful to create dialogs using Quasar API.
+ * Quasar composable. Useful to create dialogs using Quasar API.
  */
 const quasar = useQuasar();
 
@@ -89,6 +89,7 @@ function showConfirmDeleteDialog() {
 }
 
 onMounted(() => {
+  quasar.dark.set('auto');
   notes.read(Number.parseInt(route.params.id as string));
 
   // Create a reference note.

@@ -23,14 +23,19 @@
               </q-list>
             </q-menu>
           </q-btn>
+          <!--Appareance button-->
+          <q-btn
+            round
+            flat
+            :icon="quasar.dark.isActive ? 'light_mode' : 'dark_mode'"
+            @click="quasar.dark.toggle"
+          />
           <q-btn round flat icon="more_vert">
             <!--Select all-->
             <q-menu>
               <q-list>
-                <q-item clickable v-close-popup>
-                  <q-item-section @click="setSelectedNotes"
-                    >Select all</q-item-section
-                  >
+                <q-item clickable v-close-popup @click="setSelectedNotes">
+                  <q-item-section>Select all</q-item-section>
                 </q-item>
               </q-list>
             </q-menu>
@@ -77,6 +82,7 @@
         row-key="id"
         selection="multiple"
         v-model:selected="selectedNotes"
+        no-data-label="No notes yet. Create one!"
       >
         <template v-slot:item="props">
           <div
@@ -119,11 +125,7 @@
             </q-card>
           </div>
         </template>
-        <template #no-data>
-          <p text-body1>No notes yet. Create one!</p>
-        </template>
       </q-table>
-
       <q-page-sticky position="bottom-right" :offset="[18, 18]">
         <q-btn fab icon="add" color="accent" :to="{ name: 'createNote' }" />
       </q-page-sticky>
@@ -135,6 +137,7 @@
 import { ref, onMounted } from 'vue';
 
 import { useNotesStore } from 'src/stores/notes';
+import { useQuasar } from 'quasar';
 import { useRouter } from 'vue-router';
 import { Note } from 'src/ts/interfaces/note';
 
@@ -147,6 +150,11 @@ const router = useRouter();
  * Pinia store to centralize note's data.
  */
 const notes = useNotesStore();
+
+/**
+ * Expose quasar composable function.
+ */
+const quasar = useQuasar();
 
 /**
  * Columns definition for q-table component.
@@ -200,6 +208,7 @@ function removeNotes(selectedNotes: Note[]): void {
 }
 
 onMounted(() => {
+  quasar.dark.set('auto');
   if (notes.data.length == 0) {
     notes.loadData();
   }

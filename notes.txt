@@ -5,19 +5,12 @@ One note has id, title, body, tags, timestamp, owner
 Commit note: Changed message when note list is empty. Added pwa on build mode.
 TODO's:
 
-  Add ajax bar.
-
-  TODO: Customize list note page (notes table).
-
-  TODO: Create application menu.
-
-
   Backend:
   TODO: Create application API.
   TODO: Add authentication to application API.
   TODO: Connect frontend with application API.
 
-  TODO: Create a Progresive Web Application.
+
   TODO: Add dark mode.
   TODO: Add notifications to inform user when action is done or undone. Use banner component.
 
@@ -61,6 +54,8 @@ TODO: Create a backend storage to centralize host, port and requests code.
 
 
 DONE:
+
+  Create a Progresive Web Application.
 
   Customize message when notes table is loading.
 
@@ -111,8 +106,16 @@ DONE:
   When user click a note on listNotes page should go to updateNote. Delete readNote page.
 
 NO:
+
+  Create application menu.
+
+  Customize list note page (notes table). A idea is change table for a
+  list. Is more simple. One solution is use a common table without grid mode.
+
+  Add AJAX bar.
+
   Add WYSIWYG editor to note form. This a application note, not a text editor.
-      NO: Put all commands inside WYSIWYG editor. Then select and remove unnecesary elements.
+    Put all commands inside WYSIWYG editor. Then select and remove unnecesary elements.
 
   Add uppercase to "select all" checkbox.
 

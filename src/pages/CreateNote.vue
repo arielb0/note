@@ -16,10 +16,23 @@ import { onMounted, computed } from 'vue';
 import NoteForm from 'src/components/NoteForm.vue';
 import BackButton from 'src/components/BackButton.vue';
 import { useNotesStore } from 'stores/notes';
+import { useQuasar } from 'quasar';
 import { useRouter } from 'vue-router';
 
+/**
+ * Vue router instance.
+ */
 const router = useRouter();
+
+/**
+ * Notes store instance.
+ */
 const notes = useNotesStore();
+
+/**
+ * Quasar composable.
+ */
+const quasar = useQuasar();
 
 /**
  * Computed property to know if note has changed.
@@ -48,6 +61,7 @@ function createNote() {
 }
 
 onMounted(() => {
+  quasar.dark.set('auto');
   notes.clean();
 });
 </script>
