@@ -61,7 +61,6 @@ function createNote() {
 }
 
 onMounted(() => {
-  quasar.dark.set('auto');
   notes.clean();
 });
 </script>

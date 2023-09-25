@@ -208,7 +208,6 @@ function removeNotes(selectedNotes: Note[]): void {
 }
 
 onMounted(() => {
-  quasar.dark.set('auto');
   if (notes.data.length == 0) {
     notes.loadData();
   }
@@ -221,6 +220,7 @@ onMounted(() => {
   max-width: 350px;
 }
 
+/**TODO: Fix dark mode */
 .my-card:hover {
   background-color: #e8e8e8;
 }

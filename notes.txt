@@ -7,12 +7,18 @@ TODO's:
 
   Backend:
   TODO: Create application API.
+    Setup express project using express-generator.
+
   TODO: Add authentication to application API.
   TODO: Connect frontend with application API.
 
 
-  TODO: Add dark mode.
-  TODO: Add notifications to inform user when action is done or undone. Use banner component.
+
+    Create a button to toggle dark mode.
+    Is a good idea create a store to manage dark mode state.
+
+  TODO: Add notifications to inform user when action is done or undone.
+  Use banner component. This task you need to do before you create an API.
 
 
   This is for portfolio:
@@ -54,6 +60,8 @@ TODO: Create a backend storage to centralize host, port and requests code.
 
 
 DONE:
+
+  Add dark mode.
 
   Create a Progresive Web Application.
 

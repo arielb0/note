@@ -89,7 +89,6 @@ function showConfirmDeleteDialog() {
 }
 
 onMounted(() => {
-  quasar.dark.set('auto');
   notes.read(Number.parseInt(route.params.id as string));
 
   // Create a reference note.
